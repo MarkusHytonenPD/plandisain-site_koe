@@ -4,14 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlanDisain</title>
+  <meta
+    name="description"
+    content="PlanDisain tarjoaa asiantuntevaa kaavoitusta, kehittämistä, digitalisaatiota ja vuorovaikutteisia ratkaisuja maankäytön suunnitteluun."
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">PlanDisain</div>
-      <nav class="main-nav">
-        <a href="#etusivu">Etusivu</a>
+      <a href="#top" class="logo">PlanDisain</a>
+
+      <nav class="main-nav" aria-label="Päänavigaatio">
         <a href="#palvelut">Palvelut</a>
         <a href="#yritys">Yritys</a>
         <a href="#referenssit">Referenssit</a>
@@ -20,31 +24,37 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="etusivu">
-      <div class="container">
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Maankäytön suunnittelu ja kehittäminen</p>
         <h1>Kaavoitusta, kehittämistä ja vuorovaikutusta</h1>
-        <p>
+        <p class="hero-text">
           PlanDisain tarjoaa asiantuntevaa kaavoitusta, digitalisaation kehittämistä
           ja vuorovaikutteisia ratkaisuja maankäytön suunnitteluun.
         </p>
-        <a class="btn" href="#palvelut">Tutustu palveluihin</a>
+        <a class="button-primary" href="#palvelut">Tutustu palveluihin</a>
       </div>
     </section>
 
-    <section class="services" id="palvelut">
+    <section class="section" id="palvelut">
       <div class="container">
-        <h2>Palvelut</h2>
+        <div class="section-heading">
+          <p class="section-kicker">Palvelut</p>
+          <h2>Asiantuntevat ratkaisut suunnittelun eri vaiheisiin</h2>
+        </div>
+
         <div class="card-grid">
-          <article class="card">
+          <article class="service-card">
             <h3>Kaavoitus</h3>
             <p>
-              Kaavoitusprosessit läpi sujuvasti, havainnollisesti ja vuorovaikutteisesti.
-              Kokemusta yli 50 kaavan laatimisesta yli 30 kuntaan.
+              Kaavoitusprosessit läpi sujuvasti, havainnollisesti ja
+              vuorovaikutteisesti. Kokemusta yli 50 kaavan laatimisesta
+              yli 30 kuntaan.
             </p>
           </article>
 
-          <article class="card">
+          <article class="service-card">
             <h3>Kehittäminen ja digitalisaatio</h3>
             <p>
               Laaja-alaista asiantuntemusta kaavoituksen kehittämisestä ja
@@ -52,47 +62,58 @@
             </p>
           </article>
 
-          <article class="card">
+          <article class="service-card">
             <h3>Vuorovaikutus</h3>
             <p>
-              Vuorovaikutus on kaavoituksessa merkittävässä roolissa. PlanDisain tukee
-              vuorovaikutuksen järjestämisessä erilaisissa kaavahankkeissa digitaalisia
-              alustoja hyödyntäen.
+              Vuorovaikutus on kaavoituksessa merkittävässä roolissa.
+              PlanDisain tukee vuorovaikutuksen järjestämisessä erilaisissa
+              kaavahankkeissa digitaalisia alustoja hyödyntäen.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="about" id="yritys">
-      <div class="container">
-        <h2>Yritys</h2>
-        <p>
+    <section class="section section-alt" id="yritys">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="section-kicker">Yritys</p>
+          <h2>Sujuvaa suunnittelua ja laadukasta sisältöä</h2>
+        </div>
+
+        <p class="lead">
           PlanDisain on maankäytön suunnitteluun, kaavoitukseen ja digitaalisten
           toimintatapojen kehittämiseen keskittyvä asiantuntijatoimija.
         </p>
+
         <p>
-          Toiminnan keskiössä ovat selkeä suunnittelu, laadukas sisältö ja sujuva
-          vuorovaikutus eri osapuolten kanssa.
+          Toiminnan keskiössä ovat selkeä suunnittelu, laadukas sisältö ja
+          sujuva vuorovaikutus eri osapuolten kanssa. Tavoitteena on yhdistää
+          asiantuntemus, käytännöllisyys ja ymmärrettävä viestintä osaksi
+          toimivaa suunnitteluprosessia.
         </p>
       </div>
     </section>
 
-    <section class="references" id="referenssit">
+    <section class="section" id="referenssit">
       <div class="container">
-        <h2>Referenssit</h2>
-        <div class="card-grid">
-          <article class="card">
+        <div class="section-heading">
+          <p class="section-kicker">Referenssit</p>
+          <h2>Kokemusta kaavoituksesta, digitalisaatiosta ja vuorovaikutuksesta</h2>
+        </div>
+
+        <div class="card-grid references-grid">
+          <article class="reference-card">
             <h3>Vuorovaikutus</h3>
             <p>Digitaaliset osallistumisen ratkaisut kaavahankkeissa.</p>
           </article>
 
-          <article class="card">
+          <article class="reference-card">
             <h3>Digitalisaatio</h3>
             <p>Kaavoituksen toimintamallien ja tiedonhallinnan kehittäminen.</p>
           </article>
 
-          <article class="card">
+          <article class="reference-card">
             <h3>Kaavoitus</h3>
             <p>Yleis- ja asemakaavoituksen asiantuntijatyö eri kunnissa.</p>
           </article>
@@ -100,18 +121,24 @@
       </div>
     </section>
 
-    <section class="contact" id="yhteys">
-      <div class="container">
-        <h2>Yhteystiedot</h2>
-        <p>Sähköposti: info@plandisain.fi</p>
-        <p>Verkkosivut: www.plandisain.fi</p>
+    <section class="section contact-section" id="yhteys">
+      <div class="container contact-box">
+        <div>
+          <p class="section-kicker">Yhteystiedot</p>
+          <h2>Ota yhteyttä</h2>
+        </div>
+
+        <div class="contact-details">
+          <p><strong>Sähköposti:</strong> info@plandisain.fi</p>
+          <p><strong>Verkkosivut:</strong> www.plandisain.fi</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 PlanDisain</p>
+    <div class="container footer-inner">
+      <p>© PlanDisain</p>
     </div>
   </footer>
 </body>
