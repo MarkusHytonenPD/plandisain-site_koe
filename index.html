@@ -3,694 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plandisain Oy</title>
-  <meta name="description" content="Kaavoituksen, vuorovaikutuksen ja maankäytön digitalisaation asiantuntijapalvelut koko Suomessa." />
-  <style>
-    :root {
-      --bg: #f4f6f2;
-      --surface: #ffffff;
-      --surface-2: #eef3ec;
-      --text: #163126;
-      --muted: #52645b;
-      --line: #d9e3dc;
-      --brand: #2f6f5e;
-      --brand-dark: #1f4f42;
-      --accent: #c7d9cf;
-      --shadow: 0 18px 45px rgba(22, 49, 38, 0.08);
-      --radius: 20px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #f9fbf8 0%, var(--bg) 100%);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(249, 251, 248, 0.88);
-      border-bottom: 1px solid rgba(217, 227, 220, 0.8);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      min-width: 0;
-    }
-
-    .brand strong {
-      font-size: 1.1rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.96rem;
-      padding: 8px 10px;
-      border-radius: 999px;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-      background: rgba(47, 111, 94, 0.08);
-      outline: none;
-    }
-
-    .cta-link {
-      background: var(--brand);
-      color: #fff !important;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-link:hover,
-    .cta-link:focus-visible {
-      background: var(--brand-dark) !important;
-      color: #fff !important;
-    }
-
-    .hero {
-      padding: 78px 0 44px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-main,
-    .hero-side {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-main {
-      padding: 54px;
-      background:
-        radial-gradient(circle at top right, rgba(199, 217, 207, 0.42), transparent 30%),
-        linear-gradient(180deg, #ffffff 0%, #f6faf7 100%);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(47, 111, 94, 0.1);
-      color: var(--brand-dark);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 22px 0 18px;
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
-      line-height: 1.03;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-main p {
-      margin: 0;
-      font-size: 1.12rem;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .button-primary {
-      background: var(--brand);
-      color: #fff;
-    }
-
-    .button-primary:hover { background: var(--brand-dark); }
-
-    .button-secondary {
-      color: var(--text);
-      background: transparent;
-      border-color: var(--line);
-    }
-
-    .button-secondary:hover {
-      background: var(--surface-2);
-      border-color: var(--accent);
-    }
-
-    .hero-side {
-      padding: 30px;
-      display: grid;
-      gap: 18px;
-      align-content: start;
-      background: linear-gradient(180deg, #fbfcfb 0%, #eef4ef 100%);
-    }
-
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 20px;
-      background: rgba(255,255,255,0.82);
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 1.8rem;
-      line-height: 1;
-      margin-bottom: 8px;
-      color: var(--brand-dark);
-    }
-
-    .mini-card span,
-    .mini-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-header {
-      margin-bottom: 24px;
-      display: grid;
-      gap: 8px;
-      max-width: 760px;
-    }
-
-    .section-header h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    .section-header p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.04rem;
-    }
-
-    .cards-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .cards-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.24rem;
-      line-height: 1.2;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .card ul {
-      margin: 16px 0 0;
-      padding-left: 18px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .band {
-      background: linear-gradient(180deg, rgba(238, 243, 236, 0.55) 0%, rgba(238, 243, 236, 0.92) 100%);
-      border-top: 1px solid rgba(217, 227, 220, 0.8);
-      border-bottom: 1px solid rgba(217, 227, 220, 0.8);
-      margin: 22px 0;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .reference-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reference-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 6px;
-      background: linear-gradient(90deg, var(--brand) 0%, #8eb29f 100%);
-    }
-
-    .reference-meta {
-      display: inline-flex;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(47,111,94,0.08);
-      color: var(--brand-dark);
-      font-weight: 700;
-      font-size: 0.82rem;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .contact-item {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-    }
-
-    .contact-item span {
-      display: block;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-      margin-bottom: 5px;
-      font-weight: 700;
-    }
-
-    .link-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .link-list a {
-      text-decoration: none;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      font-weight: 600;
-    }
-
-    .link-list a:hover { background: var(--surface-2); }
-
-    .site-footer {
-      padding: 34px 0 54px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-box {
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .cards-3,
-      .cards-2,
-      .split,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-main {
-        padding: 36px 28px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .hero {
-        padding-top: 44px;
-      }
-
-      .hero-main,
-      .hero-side,
-      .card {
-        border-radius: 22px;
-      }
-    }
-  </style>
+  <title>PlanDisain</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Plandisain Oy etusivu">
-        <strong>Plandisain Oy</strong>
-        <span>Kaavoitus • digitalisaatio • vuorovaikutus</span>
-      </a>
-      <nav class="nav-links" aria-label="Päänavigaatio">
+    <div class="container header-inner">
+      <div class="logo">PlanDisain</div>
+      <nav class="main-nav">
+        <a href="#etusivu">Etusivu</a>
         <a href="#palvelut">Palvelut</a>
         <a href="#yritys">Yritys</a>
         <a href="#referenssit">Referenssit</a>
-        <a href="#projektit">Projektisivustot</a>
-        <a href="#yhteys" class="cta-link">Yhteystiedot</a>
+        <a href="#yhteys">Yhteystiedot</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <div class="eyebrow">Sisältöä ja havainnollisuutta</div>
-          <h1>Kaavoitusprosessit läpi sujuvasti, havainnollisesti ja vuorovaikutteisesti</h1>
-          <p>
-            Plandisain Oy tarjoaa maankäytön suunnitteluun liittyviä asiantuntijapalveluja koko Suomessa.
-            Työssä yhdistyvät käytännön kaavoitus, maankäytön digitalisaatio ja avoin vuorovaikutus.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#referenssit">Katso referenssit</a>
-            <a class="button button-secondary" href="#yhteys">Ota yhteyttä</a>
-          </div>
-        </div>
-
-        <aside class="hero-side" aria-label="Päänostot">
-          <div class="mini-card">
-            <strong>50+</strong>
-            <span>Kaavaa laadittuna yli 30 kuntaan</span>
-          </div>
-          <div class="mini-card">
-            <strong>2020</strong>
-            <span>Suomalainen yritys, joka toimii koko Suomessa</span>
-          </div>
-          <div class="mini-card">
-            <p>
-              Asiakkaita ovat kunnat, valtionhallinto, aluehallinto sekä yksityiset toimijat.
-            </p>
-          </div>
-        </aside>
+  <main>
+    <section class="hero" id="etusivu">
+      <div class="container">
+        <h1>Kaavoitusta, kehittämistä ja vuorovaikutusta</h1>
+        <p>
+          PlanDisain tarjoaa asiantuntevaa kaavoitusta, digitalisaation kehittämistä
+          ja vuorovaikutteisia ratkaisuja maankäytön suunnitteluun.
+        </p>
+        <a class="btn" href="#palvelut">Tutustu palveluihin</a>
       </div>
     </section>
 
-    <section id="palvelut">
+    <section class="services" id="palvelut">
       <div class="container">
-        <div class="section-header">
-          <h2>Asiantuntemus kolmella painopisteellä</h2>
-          <p>
-            Nykyisen plandisain.fi-sivuston ydinsisältö on jäsennetty selkeiksi palvelukokonaisuuksiksi,
-            jotta kävijä ymmärtää heti mitä yritys tekee ja missä se erottautuu.
-          </p>
-        </div>
-        <div class="cards-3">
+        <h2>Palvelut</h2>
+        <div class="card-grid">
           <article class="card">
             <h3>Kaavoitus</h3>
             <p>
-              Käytännönläheistä maankäytön suunnittelua ja kaavaprosessien johtamista niin,
-              että asiakirjat ovat selkeitä ja eteneminen sujuvaa.
+              Kaavoitusprosessit läpi sujuvasti, havainnollisesti ja vuorovaikutteisesti.
+              Kokemusta yli 50 kaavan laatimisesta yli 30 kuntaan.
             </p>
-            <ul>
-              <li>Asemakaavat ja rantakaavat</li>
-              <li>Havainnolliset kaava-asiakirjat</li>
-              <li>Oleellisten kysymysten tunnistaminen tilaajan kanssa</li>
-            </ul>
           </article>
 
           <article class="card">
             <h3>Kehittäminen ja digitalisaatio</h3>
             <p>
-              Laaja-alaista asiantuntemusta kaavoituksen kehittämisestä sekä digitalisaation hyötyjen
-              käyttöönotosta, määrittelystä ja käytännön soveltamisesta.
+              Laaja-alaista asiantuntemusta kaavoituksen kehittämisestä ja
+              digitalisaation hyötyjen käyttöönotosta ja määrittelystä.
             </p>
-            <ul>
-              <li>Digitaaliset projektisivustot</li>
-              <li>Prosessien sujuvoittaminen</li>
-              <li>Uusien teknologioiden hyödyntäminen</li>
-            </ul>
           </article>
 
           <article class="card">
             <h3>Vuorovaikutus</h3>
             <p>
-              Avoin, oikeudenmukainen ja läpinäkyvä osallistaminen vähentää epäselvyyksiä ja tekee
-              kaavahankkeista helpommin hahmotettavia eri osapuolille.
+              Vuorovaikutus on kaavoituksessa merkittävässä roolissa. PlanDisain tukee
+              vuorovaikutuksen järjestämisessä erilaisissa kaavahankkeissa digitaalisia
+              alustoja hyödyntäen.
             </p>
-            <ul>
-              <li>Digitaaliset osallistumisalustat</li>
-              <li>Vuorovaikutus kaavahankkeissa</li>
-              <li>Palautteen kokoaminen ja jäsentäminen</li>
-            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="yritys" class="band">
+    <section class="about" id="yritys">
       <div class="container">
-        <div class="section-header">
-          <h2>Yritysesittely</h2>
-          <p>
-            Tälle osiolle on tuotu nykyisen Yritysesittely-sivun sisältöä tiiviimmässä, verkkosivulle paremmin
-            sopivassa muodossa.
-          </p>
-        </div>
-        <div class="split">
-          <article class="card">
-            <h3>PlanDisain Oy</h3>
-            <p>
-              PlanDisain Oy on vuonna 2020 perustettu suomalainen yritys, joka tarjoaa maankäytön suunnitteluun
-              liittyvää asiantuntijapalvelua koko Suomessa.
-            </p>
-            <ul>
-              <li>Laadukas ja luotettava maankäytön suunnittelu</li>
-              <li>Jatkuva oppiminen ja kehittyminen</li>
-              <li>Selkeä, havainnollinen ja ymmärrettävä viestintä</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Tapa toimia</h3>
-            <p>
-              Työskentelyssä korostuvat oleellisten kysymysten ratkaiseminen yhdessä tilaajan kanssa,
-              uusien toimintatapojen käyttö sekä kyky ottaa palautetta vastaan ja kehittää tekemistä sen perusteella.
-            </p>
-            <ul>
-              <li>Avoin ja läpinäkyvä vuorovaikutus</li>
-              <li>Innovatiiviset teknologiat osana työtä</li>
-              <li>Tarvittaessa laajempi asiantuntijaverkosto</li>
-            </ul>
-          </article>
-        </div>
+        <h2>Yritys</h2>
+        <p>
+          PlanDisain on maankäytön suunnitteluun, kaavoitukseen ja digitaalisten
+          toimintatapojen kehittämiseen keskittyvä asiantuntijatoimija.
+        </p>
+        <p>
+          Toiminnan keskiössä ovat selkeä suunnittelu, laadukas sisältö ja sujuva
+          vuorovaikutus eri osapuolten kanssa.
+        </p>
       </div>
     </section>
 
-    <section id="referenssit">
+    <section class="references" id="referenssit">
       <div class="container">
-        <div class="section-header">
-          <h2>Referenssit</h2>
-          <p>
-            Nykyisellä sivustolla referenssit on jaettu kolmeen ryhmään: kaavoitus, maankäytön digitalisaatio ja vuorovaikutus.
-            Alla sama logiikka on tuotu näkyväksi selkeinä kortteina.
-          </p>
-        </div>
-        <div class="cards-3">
-          <article class="card reference-card">
-            <div class="reference-meta">Kaavoitus</div>
-            <h3>Kaavahankkeet ja suunnitteluprosessit</h3>
-            <p>
-              Referenssikokonaisuus nostaa esiin projektit, joissa työpanos on ollut vähintään merkittävä.
-              Painotus on kaavaprosessien hallinnassa ja havainnollisessa toteutuksessa.
-            </p>
+        <h2>Referenssit</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Vuorovaikutus</h3>
+            <p>Digitaaliset osallistumisen ratkaisut kaavahankkeissa.</p>
           </article>
-          <article class="card reference-card">
-            <div class="reference-meta">Digitalisaatio</div>
-            <h3>Maankäytön digitalisaatio</h3>
-            <p>
-              Kehitystyötä, jossa suunnitteluprosesseja ja tiedonhallintaa parannetaan digitaalisin ratkaisuin,
-              jotta hankkeet etenevät sujuvammin ja tieto on helpommin saatavilla.
-            </p>
+
+          <article class="card">
+            <h3>Digitalisaatio</h3>
+            <p>Kaavoituksen toimintamallien ja tiedonhallinnan kehittäminen.</p>
           </article>
-          <article class="card reference-card">
-            <div class="reference-meta">Vuorovaikutus</div>
-            <h3>Osallistaminen ja projektisivustot</h3>
-            <p>
-              Digitaaliset alustat ja selkeä viestintä tukevat osallistumista erilaisissa kaavahankkeissa
-              sekä auttavat kokoamaan palautetta ymmärrettävään muotoon.
-            </p>
+
+          <article class="card">
+            <h3>Kaavoitus</h3>
+            <p>Yleis- ja asemakaavoituksen asiantuntijatyö eri kunnissa.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="projektit" class="band">
+    <section class="contact" id="yhteys">
       <div class="container">
-        <div class="section-header">
-          <h2>Projektisivustot</h2>
-          <p>
-            Tähän osioon on tuotu esiin nykyisen sivuston projektisivulogiikka. Linkit voi myöhemmin korvata omilla
-            GitHub-sivuilla tai ohjata suoraan nykyisille projektisivuille.
-          </p>
-        </div>
-        <div class="cards-2">
-          <article class="card">
-            <h3>Aktiiviset tai esimerkilliset hankesivut</h3>
-            <div class="link-list">
-              <a href="https://www.plandisain.fi/royk-pyha.html" target="_blank" rel="noopener">Pyhäjärven rantayleiskaava</a>
-              <a href="https://www.plandisain.fi/oyk-tahin.html" target="_blank" rel="noopener">Tahiniemi–Länsiväylä yleiskaavamuutos</a>
-              <a href="https://www.plandisain.fi/ryk-ruot.html" target="_blank" rel="noopener">Ruotsalaisen rantaosayleiskaava</a>
-            </div>
-          </article>
-          <article class="card">
-            <h3>Muut sivustolta löytyvät hankkeet</h3>
-            <div class="link-list">
-              <a href="https://www.plandisain.fi/royk-itaiset.html" target="_blank" rel="noopener">Heinäveden itäisten alueiden rantayleiskaavamuutos</a>
-              <a href="https://www.plandisain.fi/royk-kyrsya.html" target="_blank" rel="noopener">Kyrsyän rantaosayleiskaava</a>
-              <a href="https://www.plandisain.fi/oyk-suursaimaa.html" target="_blank" rel="noopener">Suursaimaan OYK</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="yhteys">
-      <div class="container contact-grid">
-        <div>
-          <div class="section-header">
-            <h2>Yhteystiedot</h2>
-            <p>
-              Tämä osio hyödyntää nykyisen Yhteystiedot-sivun tietoja, mutta esittää ne visuaalisemmin ja helpommin
-              hahmotettavassa muodossa.
-            </p>
-          </div>
-          <div class="contact-list">
-            <div class="contact-item">
-              <span>Sähköposti</span>
-              <a href="mailto:markus.hytonen@plandisain.fi">markus.hytonen@plandisain.fi</a>
-            </div>
-            <div class="contact-item">
-              <span>Puhelin</span>
-              <a href="tel:+358407217527">040 721 7527</a>
-            </div>
-            <div class="contact-item">
-              <span>Y-tunnus</span>
-              <div>3179120-4</div>
-            </div>
-          </div>
-        </div>
-
-        <article class="card">
-          <h3>Jatka tästä</h3>
-          <p>
-            Tämä yhden sivun GitHub-versio toimii hyvänä välietappina. Seuraavassa vaiheessa sisältö kannattaa jakaa
-            erillisille alasivuille, kuten nykyisellä plandisain.fi-sivustolla: yritysesittely, referenssit,
-            yhteystiedot ja mahdollinen blogi.
-          </p>
-          <ul>
-            <li>Lisää oma logo tai tunnuskuva yläosaan</li>
-            <li>Korvaa esimerkkireferenssit oikeilla projekteilla</li>
-            <li>Lisää kuvia, karttoja tai havainneaineistoa</li>
-            <li>Tarvittaessa laajenna useaksi HTML-sivuksi</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://www.plandisain.fi/" target="_blank" rel="noopener">Avaa nykyinen sivusto</a>
-            <a class="button button-secondary" href="https://www.plandisain.fi/blogi.html" target="_blank" rel="noopener">Blogi</a>
-          </div>
-        </article>
+        <h2>Yhteystiedot</h2>
+        <p>Sähköposti: info@plandisain.fi</p>
+        <p>Verkkosivut: www.plandisain.fi</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-box">
-      <div>© Plandisain Oy</div>
-      <div>GitHub-versio: modernisoitu yksisivuinen rakenne</div>
+    <div class="container">
+      <p>© 2026 PlanDisain</p>
     </div>
   </footer>
 </body>
