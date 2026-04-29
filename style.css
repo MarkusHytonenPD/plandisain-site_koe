@@ -82,6 +82,16 @@ a {
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 30px;
+  flex-shrink: 0;
+  opacity: 0.92;
 }
 
 .main-nav {
@@ -110,7 +120,27 @@ a {
     linear-gradient(120deg, #43617a, #27455e 50%, #19354d);
   color: #fff;
   padding: 7rem 0 6rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.hero-map-deco {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42%;
+  max-width: 480px;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-map-deco img {
+  width: 100%;
+  height: auto;
+}
+
 
 .hero-content {
   max-width: 760px;
@@ -307,6 +337,13 @@ a {
     linear-gradient(120deg, #43617a, #27455e 50%, #19354d);
   color: #fff;
   padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero .hero-map-deco {
+  opacity: 0.1;
+  width: 35%;
 }
 
 .page-hero h1 {
