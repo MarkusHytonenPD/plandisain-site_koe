@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yhteystiedot – PlanDisain</title>
+  <meta name="description" content="Ota yhteyttä PlanDisainiin — info@plandisain.fi" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">PlanDisain</a>
+      <nav class="main-nav" aria-label="Päänavigaatio">
+        <a href="index.html#palvelut">Palvelut</a>
+        <a href="yritys.html">Yritys</a>
+        <a href="referenssit.html">Referenssit</a>
+        <a href="yhteystiedot.html" aria-current="page">Yhteystiedot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Yhteystiedot</p>
+        <h1>Ota yhteyttä</h1>
+        <p class="hero-text">
+          Kerro projektistasi tai kysy lisää palveluistamme — vastataan nopeasti.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-info-block">
+            <div class="contact-item">
+              <h3>Sähköposti</h3>
+              <p><a href="mailto:info@plandisain.fi">info@plandisain.fi</a></p>
+            </div>
+
+            <div class="contact-item">
+              <h3>Verkkosivut</h3>
+              <p><a href="https://www.plandisain.fi" target="_blank" rel="noopener">www.plandisain.fi</a></p>
+            </div>
+
+            <div class="contact-item">
+              <h3>Palvelut</h3>
+              <ul class="feature-list" style="margin-top: var(--space-2);">
+                <li>Kaavoitus</li>
+                <li>Kehittäminen ja digitalisaatio</li>
+                <li>Vuorovaikutus</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-heading" style="margin-bottom: var(--space-4);">
+              <p class="section-kicker">Yhteydenottolomake</p>
+              <h2 style="font-size: 1.8rem;">Lähetä viesti</h2>
+            </div>
+
+            <form action="mailto:info@plandisain.fi" method="post" enctype="text/plain">
+              <div class="form-group">
+                <label for="nimi">Nimi</label>
+                <input type="text" id="nimi" name="nimi" placeholder="Etunimi Sukunimi" required />
+              </div>
+
+              <div class="form-group">
+                <label for="sahkoposti">Sähköposti</label>
+                <input type="email" id="sahkoposti" name="sahkoposti" placeholder="nimi@organisaatio.fi" required />
+              </div>
+
+              <div class="form-group">
+                <label for="aihe">Aihe</label>
+                <input type="text" id="aihe" name="aihe" placeholder="Mistä asiasta on kyse?" />
+              </div>
+
+              <div class="form-group">
+                <label for="viesti">Viesti</label>
+                <textarea id="viesti" name="viesti" placeholder="Kerro lyhyesti projektistasi tai kysymyksestäsi..." required></textarea>
+              </div>
+
+              <button type="submit" class="button-secondary">Lähetä viesti</button>
+
+              <p class="form-note">
+                Lomake avaa sähköpostiohjelmasi. Voit myös kirjoittaa suoraan osoitteeseen
+                <a href="mailto:info@plandisain.fi">info@plandisain.fi</a>.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© PlanDisain</p>
+    </div>
+  </footer>
+</body>
+</html>
